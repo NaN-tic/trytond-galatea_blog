@@ -7,7 +7,9 @@ from .blog import *
 
 def register():
     Pool.register(
+        Tag,
         Post,
+        PostTag,
         Comment,
         GalateaWebSite,
         module='galatea_blog', type_='model')

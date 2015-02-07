@@ -33,6 +33,8 @@ this repository contains the full copyright notices and license terms. -->
             <field name="post_create_date"/>
             <label name="post_write_date"/>
             <field name="post_write_date"/>
+            <separator name="tags" colspan="4"/>
+            <field name="tags" colspan="4"/>
         </page>
         <page string="Extra" id="extra">
             <label name="user"/>

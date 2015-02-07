@@ -9,6 +9,10 @@ copyright notices and license types. -->
             <field name="posts_base_uri"/>
             <label name="default_blog_post_template"/>
             <field name="default_blog_post_template"/>
+            <label name="tags_base_uri"/>
+            <field name="tags_base_uri"/>
+            <label name="default_blog_tag_template"/>
+            <field name="default_blog_tag_template"/>
             <label name="blog_comment"/>
             <field name="blog_comment"/>
             <label name="blog_anonymous"/>

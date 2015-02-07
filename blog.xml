@@ -19,12 +19,44 @@
             <field name="group" ref="galatea.group_galatea"/>
         </record>
 
+        <!-- galatea.blog.tag -->
+        <record model="ir.ui.view" id="blog_tag_view_form">
+            <field name="model">galatea.blog.tag</field>
+            <field name="type">form</field>
+            <field name="name">tag_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="blog_tag_view_tree">
+            <field name="model">galatea.blog.tag</field>
+            <field name="type">tree</field>
+            <field name="name">tag_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_blog_tag_form">
+            <field name="name">Tags</field>
+            <field name="res_model">galatea.blog.tag</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_blog_tag_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="blog_tag_view_tree"/>
+            <field name="act_window" ref="act_blog_tag_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_blog_tag_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="blog_tag_view_form"/>
+            <field name="act_window" ref="act_blog_tag_form"/>
+        </record>
+
+        <menuitem parent="menu_galatea_blog" action="act_blog_tag_form"
+            id="menu_blog_tag_form"/>
+
         <!-- galatea.blog.post -->
         <record model="ir.ui.view" id="blog_post_view_form">
             <field name="model">galatea.blog.post</field>
             <field name="type">form</field>
             <field name="name">post_form</field>
         </record>
+
         <record model="ir.ui.view" id="blog_post_view_tree">
             <field name="model">galatea.blog.post</field>
             <field name="type">tree</field>
