@@ -26,11 +26,18 @@ class GalateaWebSite:
         'Default Tag Post Template', domain=[
             ('allowed_models.model', 'in', ['galatea.blog.tag'])
             ])
+    archives_base_uri = fields.Many2One('galatea.uri', 'Archives Base Uri',
+        domain=[
+            ('website', '=', Eval('id', -1)),
+            ])
     blog_comment = fields.Boolean('Blog comments',
         help='Active blog comments.')
-    blog_anonymous = fields.Boolean('Blog Anonymous',
+    blog_anonymous = fields.Boolean('Blog Anonymous', states={
+            'invisible': ~Eval('blog_comment', False),
+            }, depends=['blog_comment'],
         help='Active user anonymous to publish comments.')
     blog_anonymous_user = fields.Many2One('galatea.user',
         'Blog Anonymous User', states={
+            'invisible': ~Eval('blog_comment', False),
             'required': Eval('blog_anonymous', True),
-            })
+            }, depends=['blog_comment', 'blog_anonymous'])

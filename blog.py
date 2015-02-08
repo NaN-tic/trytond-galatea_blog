@@ -11,7 +11,7 @@ from trytond.transaction import Transaction
 
 from trytond.modules.galatea import GalateaVisiblePage
 
-__all__ = ['Tag', 'Post', 'PostTag', 'Comment']
+__all__ = ['Tag', 'Post', 'PostWebsite', 'PostTag', 'Comment']
 
 
 class Tag(GalateaVisiblePage, ModelSQL, ModelView):
@@ -69,8 +69,8 @@ class Tag(GalateaVisiblePage, ModelSQL, ModelView):
 class Post(GalateaVisiblePage, ModelSQL, ModelView):
     "Blog Post"
     __name__ = 'galatea.blog.post'
-    websites = fields.Many2Many('galatea.cms.article-galatea.website',
-        'article', 'website', 'Websites', required=True)
+    websites = fields.Many2Many('galatea.blog.post-galatea.website',
+        'post', 'website', 'Websites', required=True)
     description = fields.Text('Description', required=True, translate=True,
         help='You could write wiki markup to create html content. Formats '
         'text following the MediaWiki '
@@ -79,6 +79,11 @@ class Post(GalateaVisiblePage, ModelSQL, ModelView):
         help='You could write wiki markup to create html content. Formats '
         'text following the MediaWiki '
         '(http://meta.wikimedia.org/wiki/Help:Editing) syntax.')
+    markup = fields.Selection([
+            (None, ''),
+            ('wikimedia', 'WikiMedia'),
+            ('rest', 'ReStructuredText'),
+            ], 'Markup')
     metadescription = fields.Char('Meta Description', translate=True,
         help='Almost all search engines recommend it to be shorter '
         'than 155 characters of plain text')
@@ -87,6 +92,7 @@ class Post(GalateaVisiblePage, ModelSQL, ModelView):
     metatitle = fields.Char('Meta Title', translate=True)
     post_create_date = fields.DateTime('Create Date', readonly=True)
     post_write_date = fields.DateTime('Write Date', readonly=True)
+    # TODO: it should be "author"
     user = fields.Many2One('galatea.user', 'User', required=True)
     tags = fields.Many2Many('galatea.blog.post-galatea.blog.tag', 'post',
         'tag', 'Tags')
@@ -188,8 +194,17 @@ class Post(GalateaVisiblePage, ModelSQL, ModelView):
         cls.raise_user_error('delete_posts')
 
 
+class PostWebsite(ModelSQL):
+    'Galatea Blog Post - Website'
+    __name__ = 'galatea.blog.post-galatea.website'
+    post = fields.Many2One('galatea.blog.post', 'Post',
+        ondelete='CASCADE', select=True, required=True)
+    website = fields.Many2One('galatea.website', 'Website',
+        ondelete='RESTRICT', select=True, required=True)
+
+
 class PostTag(ModelSQL):
-    'Galatea Post - Tag'
+    'Galatea Blog Post - Tag'
     __name__ = 'galatea.blog.post-galatea.blog.tag'
     post = fields.Many2One('galatea.blog.post', 'Galatea Post', ondelete='CASCADE', required=True, select=True)
     tag = fields.Many2One('galatea.blog.tag', 'Tag', ondelete='CASCADE', required=True, select=True)

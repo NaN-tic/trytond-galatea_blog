@@ -19,6 +19,8 @@ this repository contains the full copyright notices and license terms. -->
             <field name="description" colspan="4"/>
             <separator name="long_description" colspan="4"/>
             <field name="long_description" colspan="4"/>
+            <label name="markup"/>
+            <field name="markup"/>
         </page>
         <page string="SEO" id="seo">
             <label name="metadescription"/>

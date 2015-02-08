@@ -9,6 +9,7 @@ def register():
     Pool.register(
         Tag,
         Post,
+        PostWebsite,
         PostTag,
         Comment,
         GalateaWebSite,
