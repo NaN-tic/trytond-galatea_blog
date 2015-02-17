@@ -14,14 +14,14 @@ class GalateaWebSite:
 
     posts_base_uri = fields.Many2One('galatea.uri', 'Posts Base Uri', domain=[
             ('website', '=', Eval('id', -1)),
-            ])
+            ], depends=['id'])
     default_blog_post_template = fields.Many2One('galatea.template',
         'Default Blog Post Template', domain=[
             ('allowed_models.model', 'in', ['galatea.blog.post'])
             ])
     tags_base_uri = fields.Many2One('galatea.uri', 'Tags Base Uri', domain=[
             ('website', '=', Eval('id', -1)),
-            ])
+            ], depends=['id'])
     default_blog_tag_template = fields.Many2One('galatea.template',
         'Default Tag Post Template', domain=[
             ('allowed_models.model', 'in', ['galatea.blog.tag'])
@@ -29,7 +29,7 @@ class GalateaWebSite:
     archives_base_uri = fields.Many2One('galatea.uri', 'Archives Base Uri',
         domain=[
             ('website', '=', Eval('id', -1)),
-            ])
+            ], depends=['id'])
     blog_comment = fields.Boolean('Blog comments',
         help='Active blog comments.')
     blog_anonymous = fields.Boolean('Blog Anonymous', states={
