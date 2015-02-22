@@ -148,7 +148,8 @@ class Post(GalateaVisiblePage, ModelSQL, ModelView):
         now = datetime.now()
         vlist = [x.copy() for x in vlist]
         for vals in vlist:
-            vals['post_create_date'] = now
+            if not vals.get('post_create_date'):
+                vals['post_create_date'] = now
         return super(Post, cls).create(vlist)
 
     @classmethod
@@ -174,8 +175,9 @@ class Post(GalateaVisiblePage, ModelSQL, ModelView):
             default = {}
         else:
             default = default.copy()
-        default['blog_create_date'] = None
-        default['blog_write_date'] = None
+        if not default.get('post_create_date'):
+            default['post_create_date'] = None
+        default['post_write_date'] = None
         return super(Post, cls).copy(posts, default=default)
 
     @classmethod
