@@ -5,9 +5,7 @@ from datetime import datetime
 
 from trytond.model import ModelSQL, ModelView, fields
 from trytond.pool import Pool
-from trytond.pyson import Eval, Greater
 from trytond.transaction import Transaction
-# from trytond.cache import Cache
 
 from trytond.modules.galatea import GalateaVisiblePage
 
@@ -207,12 +205,30 @@ class PostWebsite(ModelSQL):
     website = fields.Many2One('galatea.website', 'Website',
         ondelete='RESTRICT', select=True, required=True)
 
+    @classmethod
+    def __setup__(cls):
+        super(PostWebsite, cls).__setup__()
+        cls._sql_constraints += [
+            ('post_website_uniq', 'UNIQUE (post, website)',
+                'The Website of the Post must be unique.'),
+            ]
+
 
 class PostTag(ModelSQL):
     'Galatea Blog Post - Tag'
     __name__ = 'galatea.blog.post-galatea.blog.tag'
-    post = fields.Many2One('galatea.blog.post', 'Galatea Post', ondelete='CASCADE', required=True, select=True)
-    tag = fields.Many2One('galatea.blog.tag', 'Tag', ondelete='CASCADE', required=True, select=True)
+    post = fields.Many2One('galatea.blog.post', 'Galatea Post',
+        ondelete='CASCADE', required=True, select=True)
+    tag = fields.Many2One('galatea.blog.tag', 'Tag', ondelete='CASCADE',
+        required=True, select=True)
+
+    @classmethod
+    def __setup__(cls):
+        super(PostTag, cls).__setup__()
+        cls._sql_constraints += [
+            ('post_tag_uniq', 'UNIQUE (post, tag)',
+                'The Tag of the Post must be unique.'),
+            ]
 
 
 class Comment(ModelSQL, ModelView):
