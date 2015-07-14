@@ -191,9 +191,7 @@ class Post(GalateaVisiblePage, ModelSQL, ModelView):
 
     @classmethod
     def delete(cls, posts):
-        if Transaction().user != 1:
-            # Change by user warning
-            cls.raise_user_error('delete_posts')
+        cls.raise_user_warning('delete_posts')
         super(Post, cls).delete(posts)
 
 
