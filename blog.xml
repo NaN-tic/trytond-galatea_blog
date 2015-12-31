@@ -67,7 +67,8 @@
         <record model="ir.action.act_window" id="act_blog_post_comment_form2">
             <field name="name">Comments</field>
             <field name="res_model">galatea.blog.comment</field>
-            <field name="domain">[("post", 'in', Eval('active_ids'))]</field>
+            <field name="domain" eval="[('post', 'in', Eval('active_ids'))]"
+                pyson="1"/>
         </record>
         <record model="ir.action.keyword" id="act_open_blog_post_comment_keyword1">
             <field name="keyword">form_relate</field>
@@ -123,6 +124,13 @@
             id="menu_blog_comment_form"/>
 
         <!-- Access -->
+        <record model="ir.model.access" id="access_galatea_blog_post_default">
+            <field name="model" search="[('model', '=', 'galatea.blog.post')]"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
         <record model="ir.model.access" id="access_galatea_blog_post">
             <field name="model" search="[('model', '=', 'galatea.blog.post')]"/>
             <field name="group" ref="group_galatea_blog"/>
@@ -135,6 +143,13 @@
             <field name="model" search="[('model', '=', 'galatea.blog.post')]"/>
             <field name="group" ref="galatea.group_galatea"/>
             <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_galatea_blog_comment_default">
+            <field name="model" search="[('model', '=', 'galatea.blog.comment')]"/>
+            <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
