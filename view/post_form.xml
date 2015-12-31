@@ -1,20 +1,22 @@
 <?xml version="1.0"?>
 <!-- This file is part galatea_blog of Tryton. The COPYRIGHT file at the top level of
 this repository contains the full copyright notices and license terms. -->
-<form string="Post">
+<form string="Post" col="6">
     <label name="name"/>
     <field name="name"/>
     <label name="slug"/>
     <field name="slug"/>
     <label name="active"/>
     <field name="active"/>
-    <label name="uri"/>
-    <field name="uri" widget="url"/>
-    <notebook colspan="4">
+    <label name="canonical_uri"/>
+    <field name="canonical_uri"/>
+    <notebook colspan="6">
         <page string="Descriptions" id="descriptions">
             <field name="description" colspan="4"/>
             <separator name="long_description" colspan="4"/>
             <field name="long_description" colspan="4"/>
+            <label name="markup"/>
+            <field name="markup"/>
         </page>
         <page string="SEO" id="seo">
             <label name="metadescription"/>
@@ -29,20 +31,22 @@ this repository contains the full copyright notices and license terms. -->
             <field name="post_create_date"/>
             <label name="post_write_date"/>
             <field name="post_write_date"/>
+            <separator name="tags" colspan="4"/>
+            <field name="tags" colspan="4"/>
         </page>
         <page string="Extra" id="extra">
             <label name="user"/>
             <field name="user"/>
             <label name="visibility"/>
             <field name="visibility"/>
-            <label name="galatea_website"/>
-            <field name="galatea_website"/>
-            <label name="template"/>
-            <field name="template"/>
             <label name="gallery"/>
             <field name="gallery"/>
             <label name="comment"/>
             <field name="comment"/>
+            <separator name="websites" colspan="4"/>
+            <field name="websites" colspan="4"/>
+            <separator name="uris" colspan="4"/>
+            <field name="uris" colspan="4"/>
         </page>
         <page string="Attachments" id="attachments">
             <field name="attachments" colspan="6"/>
