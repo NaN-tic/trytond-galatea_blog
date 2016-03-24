@@ -3,7 +3,8 @@
 this repository contains the full copyright notices and license terms. -->
 <tree string="Comments">
     <field name="user"/>
-    <field name="comment_create_date"/>
+    <field name="comment_create_date" widget="date"/>
+    <field name="comment_create_date" widget="time"/>
     <field name="post"/>
     <field name="active" tree_invisible="1"/>
 </tree>
