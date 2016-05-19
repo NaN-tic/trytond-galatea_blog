@@ -2,11 +2,8 @@
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
 from datetime import datetime
-
 from trytond.model import ModelSQL, ModelView, fields
 from trytond.pool import Pool
-from trytond.transaction import Transaction
-
 from trytond.modules.galatea import GalateaVisiblePage
 
 __all__ = ['Tag', 'Post', 'PostWebsite', 'PostTag', 'Comment']
@@ -138,17 +135,12 @@ class Post(GalateaVisiblePage, ModelSQL, ModelView):
     def default_comment():
         return True
 
+    @staticmethod
+    def default_post_create_date():
+        return datetime.now()
+
     def get_total_comments(self, name):
         return len(self.comments)
-
-    @classmethod
-    def create(cls, vlist):
-        now = datetime.now()
-        vlist = [x.copy() for x in vlist]
-        for vals in vlist:
-            if not vals.get('post_create_date'):
-                vals['post_create_date'] = now
-        return super(Post, cls).create(vlist)
 
     @classmethod
     def calc_uri_vals(cls, record_vals):
@@ -171,12 +163,17 @@ class Post(GalateaVisiblePage, ModelSQL, ModelView):
     def copy(cls, posts, default=None):
         if default is None:
             default = {}
-        else:
-            default = default.copy()
-        if not default.get('post_create_date'):
-            default['post_create_date'] = None
-        default['post_write_date'] = None
-        return super(Post, cls).copy(posts, default=default)
+        default = default.copy()
+        new_posts = []
+        for post in posts:
+            default['slug'] = '%s-copy' % post.slug
+            default['post_create_date'] = datetime.now()
+            default['post_write_date'] = None
+            new_post, = super(Post, cls).copy([post], default=default)
+            new_posts.append(new_post)
+        return new_posts
+
+
 
     @classmethod
     def write(cls, *args):
@@ -240,8 +237,7 @@ class Comment(ModelSQL, ModelView):
         '(http://meta.wikimedia.org/wiki/Help:Editing) syntax.')
     active = fields.Boolean('Active',
         help='Dissable to not show content post.')
-    comment_create_date = fields.Function(fields.Char('Create Date'),
-        'get_comment_create_date')
+    comment_create_date = fields.DateTime('Create Date', readonly=True)
 
     @classmethod
     def __setup__(cls):
@@ -264,12 +260,14 @@ class Comment(ModelSQL, ModelView):
             return website.blog_anonymous_user.id
         return None
 
+    @staticmethod
+    def default_comment_create_date():
+        return datetime.now()
+
     @classmethod
-    def get_comment_create_date(cls, records, name):
-        'Created domment date'
-        res = {}
-        DATE_FORMAT = '%s %s' % (Transaction().context['locale']['date'],
-            '%H:%M:%S')
-        for record in records:
-            res[record.id] = record.create_date.strftime(DATE_FORMAT) or ''
-        return res
+    def copy(cls, comments, default=None):
+        if default is None:
+            default = {}
+        default = default.copy()
+        default['comment_create_date'] = None
+        return super(Comment, cls).copy(comments, default=default)

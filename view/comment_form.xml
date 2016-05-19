@@ -5,10 +5,7 @@ this repository contains the full copyright notices and license terms. -->
     <label name="user"/>
     <field name="user"/>
     <label name="comment_create_date"/>
-    <group col="2">
-        <field name="comment_create_date" widget="date"/>
-        <field name="comment_create_date" widget="time"/>
-    </group>
+    <field name="comment_create_date"/>
     <label name="active"/>
     <field name="active"/>
     <label name="post"/>

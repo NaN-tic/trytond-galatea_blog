@@ -6,10 +6,10 @@ from trytond.model import fields
 from trytond.pyson import Eval
 
 __all__ = ['GalateaWebSite']
-__metaclass__ = PoolMeta
 
 
 class GalateaWebSite:
+    __metaclass__ = PoolMeta
     __name__ = "galatea.website"
 
     posts_base_uri = fields.Many2One('galatea.uri', 'Posts Base Uri', domain=[
