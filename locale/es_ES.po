@@ -1,6 +1,14 @@
-# 
+#
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:galatea.blog.post-galatea.blog.tag:"
+msgid "The Tag of the Post must be unique."
+msgstr "El tag del post debe ser único."
+
+msgctxt "error:galatea.blog.post-galatea.website:"
+msgid "The Website of the Post must be unique."
+msgstr "El sitio web del post debe ser único."
 
 msgctxt "error:galatea.blog.post:"
 msgid ""
@@ -61,6 +69,10 @@ msgctxt "field:galatea.blog.post,attachments:"
 msgid "Attachments"
 msgstr "Adjuntos"
 
+msgctxt "field:galatea.blog.post,canonical_uri:"
+msgid "Canonical URI"
+msgstr "Canonical URI"
+
 msgctxt "field:galatea.blog.post,comment:"
 msgid "Comment"
 msgstr "Comentario"
@@ -97,6 +109,10 @@ msgctxt "field:galatea.blog.post,long_description:"
 msgid "Long Description"
 msgstr "Descripción larga"
 
+msgctxt "field:galatea.blog.post,markup:"
+msgid "Markup"
+msgstr "Markup"
+
 msgctxt "field:galatea.blog.post,metadescription:"
 msgid "Meta Description"
 msgstr "Meta Description"
@@ -126,12 +142,16 @@ msgid "Name"
 msgstr "Nombre"
 
 msgctxt "field:galatea.blog.post,slug:"
-msgid "slug"
+msgid "Slug"
 msgstr "slug"
 
 msgctxt "field:galatea.blog.post,slug_langs:"
 msgid "Slug Langs"
 msgstr "Slug idiomas"
+
+msgctxt "field:galatea.blog.post,tags:"
+msgid "Tags"
+msgstr "Tags"
 
 msgctxt "field:galatea.blog.post,template:"
 msgid "Template"
@@ -142,8 +162,12 @@ msgid "Total Comments"
 msgstr "Total comentarios"
 
 msgctxt "field:galatea.blog.post,uri:"
-msgid "Uri"
+msgid "URI"
 msgstr "Uri"
+
+msgctxt "field:galatea.blog.post,uris:"
+msgid "URIs"
+msgstr "URIs"
 
 msgctxt "field:galatea.blog.post,user:"
 msgid "User"
@@ -153,6 +177,10 @@ msgctxt "field:galatea.blog.post,visibility:"
 msgid "Visibility"
 msgstr "Visibilidad"
 
+msgctxt "field:galatea.blog.post,websites:"
+msgid "Websites"
+msgstr "Sitios web"
+
 msgctxt "field:galatea.blog.post,write_date:"
 msgid "Write Date"
 msgstr "Fecha modificación"
@@ -160,6 +188,138 @@ msgstr "Fecha modificación"
 msgctxt "field:galatea.blog.post,write_uid:"
 msgid "Write User"
 msgstr "Usuario modificación"
+
+msgctxt "field:galatea.blog.post-galatea.blog.tag,create_date:"
+msgid "Create Date"
+msgstr "Fecha creación"
+
+msgctxt "field:galatea.blog.post-galatea.blog.tag,create_uid:"
+msgid "Create User"
+msgstr "Usuario creación"
+
+msgctxt "field:galatea.blog.post-galatea.blog.tag,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:galatea.blog.post-galatea.blog.tag,post:"
+msgid "Galatea Post"
+msgstr "Galatea Post"
+
+msgctxt "field:galatea.blog.post-galatea.blog.tag,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:galatea.blog.post-galatea.blog.tag,tag:"
+msgid "Tag"
+msgstr "Tag"
+
+msgctxt "field:galatea.blog.post-galatea.blog.tag,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:galatea.blog.post-galatea.blog.tag,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:galatea.blog.post-galatea.website,create_date:"
+msgid "Create Date"
+msgstr "Fecha creación"
+
+msgctxt "field:galatea.blog.post-galatea.website,create_uid:"
+msgid "Create User"
+msgstr "Usuario creación"
+
+msgctxt "field:galatea.blog.post-galatea.website,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:galatea.blog.post-galatea.website,post:"
+msgid "Post"
+msgstr "Post"
+
+msgctxt "field:galatea.blog.post-galatea.website,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:galatea.blog.post-galatea.website,website:"
+msgid "Website"
+msgstr "Sitio Web"
+
+msgctxt "field:galatea.blog.post-galatea.website,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:galatea.blog.post-galatea.website,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:galatea.blog.tag,active:"
+msgid "Active"
+msgstr "Activo"
+
+msgctxt "field:galatea.blog.tag,canonical_uri:"
+msgid "Canonical URI"
+msgstr "Canonical URI"
+
+msgctxt "field:galatea.blog.tag,create_date:"
+msgid "Create Date"
+msgstr "Fecha creación"
+
+msgctxt "field:galatea.blog.tag,create_uid:"
+msgid "Create User"
+msgstr "Usuario creación"
+
+msgctxt "field:galatea.blog.tag,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:galatea.blog.tag,name:"
+msgid "Title"
+msgstr "Título"
+
+msgctxt "field:galatea.blog.tag,posts:"
+msgid "Posts"
+msgstr "Posts"
+
+msgctxt "field:galatea.blog.tag,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:galatea.blog.tag,slug:"
+msgid "Slug"
+msgstr "Slug"
+
+msgctxt "field:galatea.blog.tag,template:"
+msgid "Template"
+msgstr "Plantilla"
+
+msgctxt "field:galatea.blog.tag,uri:"
+msgid "URI"
+msgstr "URI"
+
+msgctxt "field:galatea.blog.tag,uris:"
+msgid "URIs"
+msgstr "URIs"
+
+msgctxt "field:galatea.blog.tag,visibility:"
+msgid "Visibility"
+msgstr "Visibilidad"
+
+msgctxt "field:galatea.blog.tag,websites:"
+msgid "Websites"
+msgstr "Sitios web"
+
+msgctxt "field:galatea.blog.tag,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:galatea.blog.tag,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:galatea.website,archives_base_uri:"
+msgid "Archives Base Uri"
+msgstr "Base Archivo Uri"
 
 msgctxt "field:galatea.website,blog_anonymous:"
 msgid "Blog Anonymous"
@@ -172,6 +332,22 @@ msgstr "Blog usuario anónimo"
 msgctxt "field:galatea.website,blog_comment:"
 msgid "Blog comments"
 msgstr "Comentarios blog"
+
+msgctxt "field:galatea.website,default_blog_post_template:"
+msgid "Default Blog Post Template"
+msgstr "Plantilla blog post por defecto"
+
+msgctxt "field:galatea.website,default_blog_tag_template:"
+msgid "Default Tag Post Template"
+msgstr "Plantilla tag post por defecto"
+
+msgctxt "field:galatea.website,posts_base_uri:"
+msgid "Posts Base Uri"
+msgstr "Base Posts Uri"
+
+msgctxt "field:galatea.website,tags_base_uri:"
+msgid "Tags Base Uri"
+msgstr "Base Tags Uri"
 
 msgctxt "help:galatea.blog.comment,active:"
 msgid "Dissable to not show content post."
@@ -187,7 +363,7 @@ msgstr ""
 "(http://meta.wikimedia.org/wiki/Help:Editing)."
 
 msgctxt "help:galatea.blog.post,active:"
-msgid "Dissable to not show content post."
+msgid "Dissable to not show this content."
 msgstr "Desactivar para no mostrar el contenido del post."
 
 msgctxt "help:galatea.blog.post,comment:"
@@ -232,6 +408,10 @@ msgctxt "help:galatea.blog.post,slug:"
 msgid "Cannonical uri."
 msgstr "Cannonical uri."
 
+msgctxt "help:galatea.blog.tag,active:"
+msgid "Dissable to not show this content."
+msgstr "Desactivar para no mostrar el contenido del post."
+
 msgctxt "help:galatea.website,blog_anonymous:"
 msgid "Active user anonymous to publish comments."
 msgstr "Activar usuarios anónimos en publicar comentarios."
@@ -248,6 +428,18 @@ msgctxt "model:galatea.blog.post,name:"
 msgid "Blog Post"
 msgstr "Post blog"
 
+msgctxt "model:galatea.blog.post-galatea.blog.tag,name:"
+msgid "Galatea Blog Post - Tag"
+msgstr "Galatea Blog Post - Tag"
+
+msgctxt "model:galatea.blog.post-galatea.website,name:"
+msgid "Galatea Blog Post - Website"
+msgstr "Galatea Blog Post - Sitio web"
+
+msgctxt "model:galatea.blog.tag,name:"
+msgid "Blog Tag"
+msgstr "Blog Tag"
+
 msgctxt "model:ir.action,name:act_blog_comment_form"
 msgid "Comments"
 msgstr "Comentarios"
@@ -260,6 +452,10 @@ msgctxt "model:ir.action,name:act_blog_post_form"
 msgid "Posts"
 msgstr "Posts"
 
+msgctxt "model:ir.action,name:act_blog_tag_form"
+msgid "Tags"
+msgstr "Tags"
+
 msgctxt "model:ir.ui.menu,name:menu_blog_comment_form"
 msgid "Comments"
 msgstr "Comentarios"
@@ -268,6 +464,10 @@ msgctxt "model:ir.ui.menu,name:menu_blog_post_form"
 msgid "Posts"
 msgstr "Posts"
 
+msgctxt "model:ir.ui.menu,name:menu_blog_tag_form"
+msgid "Tags"
+msgstr "tags"
+
 msgctxt "model:ir.ui.menu,name:menu_galatea_blog"
 msgid "Blog"
 msgstr "Blog"
@@ -275,6 +475,18 @@ msgstr "Blog"
 msgctxt "model:res.group,name:group_galatea_blog"
 msgid "Galatea Blog"
 msgstr "Galatea Blog"
+
+msgctxt "selection:galatea.blog.post,markup:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:galatea.blog.post,markup:"
+msgid "ReStructuredText"
+msgstr "ReStructuredText"
+
+msgctxt "selection:galatea.blog.post,markup:"
+msgid "WikiMedia"
+msgstr "WikiMedia"
 
 msgctxt "selection:galatea.blog.post,visibility:"
 msgid "Manager"
@@ -285,6 +497,18 @@ msgid "Public"
 msgstr "Público"
 
 msgctxt "selection:galatea.blog.post,visibility:"
+msgid "Register"
+msgstr "Registrado"
+
+msgctxt "selection:galatea.blog.tag,visibility:"
+msgid "Manager"
+msgstr "Gestor"
+
+msgctxt "selection:galatea.blog.tag,visibility:"
+msgid "Public"
+msgstr "Público"
+
+msgctxt "selection:galatea.blog.tag,visibility:"
 msgid "Register"
 msgstr "Registrado"
 
@@ -327,6 +551,18 @@ msgstr "Posts"
 msgctxt "view:galatea.blog.post:"
 msgid "SEO"
 msgstr "SEO"
+
+msgctxt "view:galatea.blog.tag:"
+msgid "Extra"
+msgstr "Extra"
+
+msgctxt "view:galatea.blog.tag:"
+msgid "Tag"
+msgstr "Tag"
+
+msgctxt "view:galatea.blog.tag:"
+msgid "Tags"
+msgstr "Tags"
 
 msgctxt "view:galatea.website:"
 msgid "Blog"
