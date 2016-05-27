@@ -222,8 +222,10 @@ class PostTag(ModelSQL):
     @classmethod
     def __setup__(cls):
         super(PostTag, cls).__setup__()
+        t = cls.__table__()
+
         cls._sql_constraints += [
-            ('post_tag_uniq', 'UNIQUE (post, tag)',
+            ('post_tag_uniq', Unique(t, t.post, t.tag),
                 'The Tag of the Post must be unique.'),
             ]
 
