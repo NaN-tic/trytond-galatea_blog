@@ -2,7 +2,7 @@
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
 from datetime import datetime
-from trytond.model import ModelSQL, ModelView, fields
+from trytond.model import ModelSQL, ModelView, fields, Unique
 from trytond.pool import Pool
 from trytond.modules.galatea import GalateaVisiblePage
 
@@ -203,8 +203,10 @@ class PostWebsite(ModelSQL):
     @classmethod
     def __setup__(cls):
         super(PostWebsite, cls).__setup__()
+        t = cls.__table__()
+
         cls._sql_constraints += [
-            ('post_website_uniq', 'UNIQUE (post, website)',
+            ('post_website_uniq', Unique(t, t.post, t.website),
                 'The Website of the Post must be unique.'),
             ]
 
