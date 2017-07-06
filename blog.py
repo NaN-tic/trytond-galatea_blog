@@ -87,6 +87,7 @@ class Post(GalateaVisiblePage, ModelSQL, ModelView):
     metatitle = fields.Char('Meta Title', translate=True)
     post_create_date = fields.DateTime('Create Date', readonly=True)
     post_write_date = fields.DateTime('Write Date', readonly=True)
+    post_published_date = fields.DateTime('Published Date', required=True)
     # TODO: it should be "author"
     user = fields.Many2One('galatea.user', 'User', required=True)
     tags = fields.Many2Many('galatea.blog.post-galatea.blog.tag', 'post',
@@ -101,9 +102,8 @@ class Post(GalateaVisiblePage, ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(Post, cls).__setup__()
-        cls._order.insert(0, ('post_create_date', 'DESC'))
+        cls._order.insert(0, ('post_published_date', 'DESC'))
         cls._order.insert(1, ('name', 'ASC'))
-
         cls._error_messages.update({
             'delete_posts': ('You can not delete '
                 'posts because you will get error 404 NOT Found. '
@@ -139,6 +139,10 @@ class Post(GalateaVisiblePage, ModelSQL, ModelView):
     def default_post_create_date():
         return datetime.now()
 
+    @staticmethod
+    def default_post_published_date():
+        return datetime.now()
+
     def get_total_comments(self, name):
         return len(self.comments)
 
@@ -172,8 +176,6 @@ class Post(GalateaVisiblePage, ModelSQL, ModelView):
             new_post, = super(Post, cls).copy([post], default=default)
             new_posts.append(new_post)
         return new_posts
-
-
 
     @classmethod
     def write(cls, *args):
