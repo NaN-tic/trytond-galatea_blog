@@ -4,7 +4,7 @@ this repository contains the full copyright notices and license terms. -->
 <tree string="Posts">
     <field name="name"/>
     <field name="post_create_date" widget="date"/>
-    <field name="post_create_date" widget="time"/>
+    <field name="post_published_date" widget="date"/>
     <field name="user"/>
     <field name="visibility"/>
     <field name="comment"/>

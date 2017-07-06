@@ -33,6 +33,9 @@ this repository contains the full copyright notices and license terms. -->
             <label name="post_write_date"/>
             <field name="post_write_date" widget="date"/>
             <field name="post_write_date" widget="time"/>
+            <label name="post_published_date"/>
+            <field name="post_published_date" widget="date"/>
+            <field name="post_published_date" widget="time"/>
             <separator name="tags" colspan="6"/>
             <field name="tags" colspan="6"/>
         </page>
