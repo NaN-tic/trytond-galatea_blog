@@ -4,7 +4,7 @@
 from datetime import datetime
 from trytond.model import ModelSQL, ModelView, fields, Unique
 from trytond.pool import Pool
-from trytond.modules.galatea import GalateaVisiblePage
+from trytond.modules.galatea.resource import GalateaVisiblePage
 
 __all__ = ['Tag', 'Post', 'PostWebsite', 'PostTag', 'Comment']
 
