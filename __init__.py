@@ -2,15 +2,15 @@
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
 from trytond.pool import Pool
-from .galatea import *
-from .blog import *
+from . import galatea
+from . import blog
 
 def register():
     Pool.register(
-        Tag,
-        Post,
-        PostWebsite,
-        PostTag,
-        Comment,
-        GalateaWebSite,
+        blog.Tag,
+        blog.Post,
+        blog.PostWebsite,
+        blog.PostTag,
+        blog.Comment,
+        galatea.GalateaWebSite,
         module='galatea_blog', type_='model')
