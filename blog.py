@@ -52,9 +52,9 @@ class Tag(GalateaVisiblePage, ModelSQL, ModelView):
 
         website = Website(uri_vals['website'])
         assert website.tags_base_uri, (
-            "Missing required field in Webite %s" % website.rec_name)
+            "Missing required field in Website %s" % website.rec_name)
         assert website.default_blog_tag_template, (
-            "Missing required field in Webite %s" % website.rec_name)
+            "Missing required field in Website %s" % website.rec_name)
 
         uri_vals['parent'] = website.tags_base_uri.id
         uri_vals['template'] = website.default_blog_tag_template.id
@@ -155,9 +155,9 @@ class Post(GalateaVisiblePage, ModelSQL, ModelView):
 
         website = Website(uri_vals['website'])
         assert website.posts_base_uri, (
-            "Missing required field in Webite %s" % website.rec_name)
+            "Missing required field in Website %s" % website.rec_name)
         assert website.default_blog_post_template, (
-            "Missing required field in Webite %s" % website.rec_name)
+            "Missing required field in Website %s" % website.rec_name)
 
         uri_vals['parent'] = website.posts_base_uri.id
         uri_vals['template'] = website.default_blog_post_template.id
