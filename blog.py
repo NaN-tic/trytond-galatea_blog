@@ -4,7 +4,9 @@
 from datetime import datetime
 from trytond.model import ModelSQL, ModelView, fields, Unique
 from trytond.pool import Pool
+from trytond.i18n import gettext
 from trytond.modules.galatea.resource import GalateaVisiblePage
+from .exceptions import DeleteWarning
 
 __all__ = ['Tag', 'Post', 'PostWebsite', 'PostTag', 'Comment']
 
@@ -104,11 +106,6 @@ class Post(GalateaVisiblePage, ModelSQL, ModelView):
         super(Post, cls).__setup__()
         cls._order.insert(0, ('post_published_date', 'DESC'))
         cls._order.insert(1, ('name', 'ASC'))
-        cls._error_messages.update({
-            'delete_posts': ('You can not delete '
-                'posts because you will get error 404 NOT Found. '
-                'Dissable active field.'),
-            })
 
     @classmethod
     def default_websites(cls):
@@ -190,7 +187,8 @@ class Post(GalateaVisiblePage, ModelSQL, ModelView):
 
     @classmethod
     def delete(cls, posts):
-        cls.raise_user_warning('delete_posts')
+        raise DeleteWarning('delete_posts',
+            gettext('galatea_blog.msg_delete_posts'))
         super(Post, cls).delete(posts)
 
 

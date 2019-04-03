@@ -3,7 +3,7 @@
 The COPYRIGHT file at the top level of this repository contains the full
 copyright notices and license types. -->
 <data>
-    <xpath expr="/form/notebook/page[@id=&quot;configuration&quot;]" position="after">
+    <xpath expr="/form/notebook/page[@id='configuration']" position="after">
         <page id="blog" string="Blog">
             <label name="posts_base_uri"/>
             <field name="posts_base_uri"/>
