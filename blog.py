@@ -4,6 +4,7 @@
 from datetime import datetime
 from trytond.model import ModelSQL, ModelView, fields, Unique
 from trytond.pool import Pool
+from trytond.pyson import Eval
 from trytond.i18n import gettext
 from trytond.modules.galatea.resource import GalateaVisiblePage
 from .exceptions import DeleteWarning
@@ -76,6 +77,8 @@ class Post(GalateaVisiblePage, ModelSQL, ModelView):
         help='You could write wiki markup to create html content. Formats '
         'text following the MediaWiki '
         '(http://meta.wikimedia.org/wiki/Help:Editing) syntax.')
+    long_description_html = fields.Function(fields.Text('Long Description HTML'),
+        'on_change_with_long_description_html')
     markup = fields.Selection([
             (None, ''),
             ('wikimedia', 'WikiMedia'),
@@ -124,6 +127,19 @@ class Post(GalateaVisiblePage, ModelSQL, ModelView):
             return website.blog_anonymous_user.id
         return None
 
+    @classmethod
+    def view_attributes(cls):
+        return super(Post, cls).view_attributes() + [
+            ('//page[@id="descriptions"]/group[@id="long_description_html"]',
+                'states', {
+                    'invisible': Eval('markup'),
+                    }),
+            ('//page[@id="descriptions"]/group[@id="long_description"]',
+                'states', {
+                    'invisible': ~Eval('markup'),
+                    }),
+            ]
+
     @staticmethod
     def default_gallery():
         return True
@@ -139,6 +155,11 @@ class Post(GalateaVisiblePage, ModelSQL, ModelView):
     @staticmethod
     def default_post_published_date():
         return datetime.now()
+
+    @fields.depends('long_description')
+    def on_change_with_long_description_html(self, name=None):
+        if self.long_description:
+            return self.long_description
 
     def get_total_comments(self, name):
         return len(self.comments)

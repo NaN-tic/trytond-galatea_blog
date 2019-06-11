@@ -14,9 +14,15 @@ this repository contains the full copyright notices and license terms. -->
         <page string="Descriptions" id="descriptions">
             <field name="description" colspan="4"/>
             <separator name="long_description" colspan="4"/>
-            <field name="long_description" colspan="4"/>
+            <group id="long_description_html" colspan="4">
+              <field name="long_description" colspan="4" widget="html"/>
+              <field name="long_description_html" widget="richtext" toolbar="0" yexpand="1" yfill="1" colspan="4"/>
+            </group>
+            <group id="long_description" colspan="4">
+              <field name="long_description" colspan="4"/>
+            </group>
             <label name="markup"/>
-            <field name="markup"/>
+            <field name="markup" xexpand="1"/>
         </page>
         <page string="SEO" id="seo">
             <label name="metadescription"/>
