@@ -102,6 +102,10 @@ msgctxt "field:galatea.blog.post,long_description:"
 msgid "Long Description"
 msgstr "Descripción larga"
 
+msgctxt "field:galatea.blog.post,long_description_html:"
+msgid "Long Description HTML"
+msgstr "Descripción llarga HTML"
+
 msgctxt "field:galatea.blog.post,markup:"
 msgid "Markup"
 msgstr "Markup"
