@@ -97,7 +97,10 @@ class Post(GalateaVisiblePage, ModelSQL, ModelView):
     comments = fields.One2Many('galatea.blog.comment', 'post', 'Comments')
     total_comments = fields.Function(fields.Integer("Total Comments"),
         'get_total_comments')
-    attachments = fields.One2Many('ir.attachment', 'resource', 'Attachments')
+    attachments = fields.One2Many('ir.attachment', 'resource', 'Attachments',
+        filter=[
+            ('allow_galatea', '=', True),
+        ])
 
     @classmethod
     def __setup__(cls):
