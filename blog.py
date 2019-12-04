@@ -69,7 +69,7 @@ class Post(GalateaVisiblePage, ModelSQL, ModelView):
     __name__ = 'galatea.blog.post'
     websites = fields.Many2Many('galatea.blog.post-galatea.website',
         'post', 'website', 'Websites', required=True)
-    description = fields.Text('Description', required=True, translate=True,
+    description = fields.Text('Description', translate=True,
         help='You could write wiki markup to create html content. Formats '
         'text following the MediaWiki '
         '(http://meta.wikimedia.org/wiki/Help:Editing) syntax.')
@@ -112,6 +112,12 @@ class Post(GalateaVisiblePage, ModelSQL, ModelView):
         super(Post, cls).__setup__()
         cls._order.insert(0, ('post_published_date', 'DESC'))
         cls._order.insert(1, ('name', 'ASC'))
+
+    @classmethod
+    def __register__(cls, module_name):
+        super().__register__(module_name)
+        table = cls.__table_handler__(module_name)
+        table.not_null_action('description', action='remove')
 
     @classmethod
     def default_websites(cls):
