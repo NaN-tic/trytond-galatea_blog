@@ -10,4 +10,9 @@ this repository contains the full copyright notices and license terms. -->
     <field name="comment"/>
     <field name="gallery"/>
     <field name="active" tree_invisible="1"/>
+    <field name="description" tree_invisible="1"/>
+    <field name="long_description" tree_invisible="1"/>
+    <field name="metadescription" tree_invisible="1"/>
+    <field name="metakeywords" tree_invisible="1"/>
+    <field name="metatitle" tree_invisible="1"/>
 </tree>
