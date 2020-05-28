@@ -2,14 +2,13 @@
 <!-- This file is part galatea_blog of Tryton. The COPYRIGHT file at the top level of
 this repository contains the full copyright notices and license terms. -->
 <tree>
-    <field name="name"/>
+    <field name="name" expand="3"/>
     <field name="post_create_date" widget="date"/>
     <field name="post_published_date" widget="date"/>
     <field name="user"/>
     <field name="visibility"/>
     <field name="comment"/>
     <field name="gallery"/>
-    <field name="active" tree_invisible="1"/>
     <field name="description" tree_invisible="1"/>
     <field name="long_description" tree_invisible="1"/>
     <field name="metadescription" tree_invisible="1"/>

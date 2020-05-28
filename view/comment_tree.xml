@@ -2,9 +2,8 @@
 <!-- This file is part galatea_blog of Tryton. The COPYRIGHT file at the top level of
 this repository contains the full copyright notices and license terms. -->
 <tree>
+    <field name="post" expand="2"/>
     <field name="user"/>
     <field name="comment_create_date" widget="date"/>
     <field name="comment_create_date" widget="time"/>
-    <field name="post"/>
-    <field name="active" tree_invisible="1"/>
 </tree>
