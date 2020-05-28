@@ -217,8 +217,10 @@ class Post(GalateaVisiblePage, ModelSQL, ModelView):
 
     @classmethod
     def delete(cls, posts):
-        raise DeleteWarning('delete_posts',
-            gettext('galatea_blog.msg_delete_posts'))
+        Warning = Pool().get('res.user.warning')
+        key = 'deleteposts'
+        if Warning.check(key):
+            raise DeleteWarning(key, gettext('galatea_blog.msg_delete_posts'))
         super(Post, cls).delete(posts)
 
 
