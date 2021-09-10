@@ -2,7 +2,7 @@
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
 from datetime import datetime
-from trytond.model import ModelSQL, ModelView, fields, Unique
+from trytond.model import ModelSQL, ModelView, DeactivableMixin, fields, Unique
 from trytond.pool import Pool
 from trytond.pyson import Eval
 from trytond.i18n import gettext
@@ -262,7 +262,7 @@ class PostTag(ModelSQL):
             ]
 
 
-class Comment(ModelSQL, ModelView):
+class Comment(DeactivableMixin, ModelSQL, ModelView):
     "Blog Comment Post"
     __name__ = 'galatea.blog.comment'
     post = fields.Many2One('galatea.blog.post', 'Post', required=True)
@@ -271,8 +271,6 @@ class Comment(ModelSQL, ModelView):
         help='You could write wiki markup to create html content. Formats '
         'text following the MediaWiki '
         '(http://meta.wikimedia.org/wiki/Help:Editing) syntax.')
-    active = fields.Boolean('Active',
-        help='Dissable to not show content post.')
     comment_create_date = fields.DateTime('Create Date', readonly=True)
 
     @classmethod
@@ -280,10 +278,6 @@ class Comment(ModelSQL, ModelView):
         super(Comment, cls).__setup__()
         cls._order.insert(0, ('create_date', 'DESC'))
         cls._order.insert(1, ('id', 'DESC'))
-
-    @staticmethod
-    def default_active():
-        return True
 
     @classmethod
     def default_user(cls):
