@@ -228,9 +228,9 @@ class PostWebsite(ModelSQL):
     'Galatea Blog Post - Website'
     __name__ = 'galatea.blog.post-galatea.website'
     post = fields.Many2One('galatea.blog.post', 'Post',
-        ondelete='CASCADE', select=True, required=True)
+        ondelete='CASCADE', required=True)
     website = fields.Many2One('galatea.website', 'Website',
-        ondelete='RESTRICT', select=True, required=True)
+        ondelete='RESTRICT', required=True)
 
     @classmethod
     def __setup__(cls):
@@ -247,9 +247,9 @@ class PostTag(ModelSQL):
     'Galatea Blog Post - Tag'
     __name__ = 'galatea.blog.post-galatea.blog.tag'
     post = fields.Many2One('galatea.blog.post', 'Galatea Post',
-        ondelete='CASCADE', required=True, select=True)
+        ondelete='CASCADE', required=True)
     tag = fields.Many2One('galatea.blog.tag', 'Tag', ondelete='CASCADE',
-        required=True, select=True)
+        required=True)
 
     @classmethod
     def __setup__(cls):
