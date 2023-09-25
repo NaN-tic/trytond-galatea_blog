@@ -40,6 +40,7 @@ class Tag(GalateaVisiblePage, ModelSQL, ModelView):
         Website = pool.get('galatea.website')
 
         all_websites = Website.search([])
+        vlist = [x.copy() for x in vlist]
         websites_value = [('add', [w.id for w in all_websites])]
         for vals in vlist:
             if not vals.get('websites'):
