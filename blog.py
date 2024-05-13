@@ -197,7 +197,6 @@ class Post(GalateaVisiblePage, ModelSQL, ModelView):
         default = default.copy()
         new_posts = []
         for post in posts:
-            default['slug'] = '%s-copy' % post.slug
             default['post_create_date'] = datetime.now()
             default['post_write_date'] = None
             new_post, = super(Post, cls).copy([post], default=default)
