@@ -290,9 +290,12 @@ class Comment(DeactivableMixin, ModelSQL, ModelView):
             return website.blog_anonymous_user.id
         return None
 
-    @staticmethod
-    def default_comment_create_date():
-        return datetime.now()
+    @classmethod
+    def preprocess_values(cls, mode, values):
+        values = super().preprocess_values(mode, values)
+        if mode == 'create' and not values.get('comment_create_date'):
+            values['comment_create_date'] = datetime.now()
+        return values
 
     @classmethod
     def copy(cls, comments, default=None):
